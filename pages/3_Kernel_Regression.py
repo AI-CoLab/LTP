@@ -228,7 +228,11 @@ try:
     - Above GCI ~4.8: High productivity, diminishing returns to further improvement
 
     """)
-    st.page_link("pages/4_Convergence_Dynamics.py", label="→ Continue to Page 4: Convergence Dynamics", icon="📖")
+    prev_col, next_col = st.columns(2)
+    with prev_col:
+        st.page_link("pages/2_Convergence_Intuition.py", label="← Back to Page 2: Convergence Intuition", icon="📖")
+    with next_col:
+        st.page_link("pages/4_Convergence_Dynamics.py", label="→ Continue to Page 4: Convergence Dynamics", icon="📖")
 
 except FileNotFoundError:
     st.error("Data files not found. Please ensure CSV files are in the `data/` directory.")

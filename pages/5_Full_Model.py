@@ -393,6 +393,11 @@ try:
     for thinking about long-term economic trajectories — and a framework for
     asking "what if?" through scenario analysis.
     """)
+    prev_col, next_col = st.columns(2)
+    with prev_col:
+        st.page_link("pages/4_Convergence_Dynamics.py", label="← Back to Page 4: Convergence Dynamics", icon="📖")
+    with next_col:
+        st.page_link("app.py", label="← Back to Home", icon="🏠")
 
 except FileNotFoundError as e:
     st.error(f"Data files not found: {e}. Please ensure CSV files are in the `data/` directory.")
