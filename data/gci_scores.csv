@@ -1,0 +1,143 @@
+iso3,country_name,gci_score,gci_basic,gci_efficiency,gci_innovation,region
+USA,United States,5.61,5.5,5.7,5.6,North America
+CHN,China,4.89,5.1,4.7,4.1,East Asia
+JPN,Japan,5.47,5.9,5.3,5.5,East Asia
+DEU,Germany,5.53,5.9,5.4,5.6,Europe
+GBR,United Kingdom,5.43,5.7,5.4,5.2,Europe
+FRA,France,5.13,5.5,5.0,4.9,Europe
+IND,India,4.31,4.3,4.1,3.8,South Asia
+BRA,Brazil,4.08,4.3,3.9,3.4,Latin America
+ITA,Italy,4.46,4.7,4.3,3.9,Europe
+CAN,Canada,5.31,5.7,5.2,4.8,North America
+KOR,"Korea, Rep.",4.99,5.2,4.9,4.5,East Asia
+RUS,Russia,4.44,4.9,4.3,3.6,Europe
+AUS,Australia,5.15,5.5,5.1,4.4,Oceania
+ESP,Spain,4.59,5.0,4.5,3.8,Europe
+MEX,Mexico,4.29,4.4,4.2,3.5,Latin America
+IDN,Indonesia,4.52,4.8,4.3,3.8,Southeast Asia
+TUR,Turkey,4.37,4.7,4.2,3.6,Europe
+SAU,Saudi Arabia,5.07,5.6,4.9,3.9,Middle East
+NLD,Netherlands,5.5,5.8,5.5,5.2,Europe
+CHE,Switzerland,5.76,6.0,5.7,5.8,Europe
+ARG,Argentina,3.79,4.0,3.6,3.2,Latin America
+SWE,Sweden,5.43,5.6,5.4,5.4,Europe
+POL,Poland,4.49,4.8,4.4,3.5,Europe
+BEL,Belgium,5.2,5.5,5.2,4.9,Europe
+THA,Thailand,4.64,4.9,4.5,3.6,Southeast Asia
+NGA,Nigeria,3.46,3.5,3.4,3.0,Sub-Saharan Africa
+AUT,Austria,5.12,5.6,5.0,4.6,Europe
+NOR,Norway,5.44,5.8,5.3,5.0,Europe
+IRN,Iran,4.09,4.5,3.9,3.2,Middle East
+ARE,United Arab Emirates,5.24,5.8,5.1,4.0,Middle East
+IRL,Ireland,5.11,5.4,5.0,4.6,Europe
+ISR,Israel,5.18,5.4,5.1,5.0,Middle East
+SGP,Singapore,5.68,6.1,5.6,5.2,Southeast Asia
+MYS,Malaysia,5.23,5.3,5.2,4.7,Southeast Asia
+HKG,Hong Kong,5.46,5.8,5.4,4.8,East Asia
+DNK,Denmark,5.33,5.6,5.3,5.1,Europe
+COL,Colombia,4.28,4.3,4.2,3.3,Latin America
+PHL,Philippines,4.39,4.5,4.3,3.5,Southeast Asia
+PAK,Pakistan,3.45,3.7,3.3,2.8,South Asia
+CHL,Chile,4.58,4.9,4.5,3.5,Latin America
+FIN,Finland,5.45,5.8,5.4,5.5,Europe
+EGY,Egypt,3.66,4.0,3.5,3.0,Middle East
+BGD,Bangladesh,3.76,3.9,3.6,2.8,South Asia
+CZE,Czech Republic,4.69,5.0,4.6,3.7,Europe
+PER,Peru,4.21,4.4,4.1,3.2,Latin America
+ROU,Romania,4.32,4.6,4.2,3.3,Europe
+VNM,Vietnam,4.3,4.5,4.2,3.3,Southeast Asia
+NZL,New Zealand,5.25,5.5,5.2,4.6,Oceania
+ISL,Iceland,4.83,5.5,4.7,3.8,Europe
+GRC,Greece,4.02,4.5,3.9,3.2,Europe
+HUN,Hungary,4.25,4.5,4.1,3.4,Europe
+PRT,Portugal,4.52,4.8,4.4,3.8,Europe
+ZAF,South Africa,4.39,4.2,4.4,3.5,Sub-Saharan Africa
+SVK,Slovak Republic,4.22,4.6,4.1,3.2,Europe
+QAT,Qatar,5.3,5.7,5.1,4.0,Middle East
+KWT,Kuwait,4.59,5.2,4.3,3.4,Middle East
+ECU,Ecuador,3.67,4.0,3.5,2.9,Latin America
+TWN,Taiwan,5.28,5.5,5.2,4.9,East Asia
+LKA,Sri Lanka,4.21,4.6,4.1,3.2,South Asia
+URY,Uruguay,4.09,4.5,3.9,3.2,Latin America
+SVN,Slovenia,4.28,4.8,4.1,3.6,Europe
+CRI,Costa Rica,4.33,4.6,4.2,3.5,Latin America
+GTM,Guatemala,3.78,4.1,3.6,3.0,Latin America
+PAN,Panama,4.38,4.6,4.3,3.4,Latin America
+DOM,Dominican Republic,3.86,4.1,3.7,3.0,Latin America
+KEN,Kenya,3.85,3.7,3.8,3.4,Sub-Saharan Africa
+KAZ,Kazakhstan,4.48,4.8,4.4,3.2,Central Asia
+ETH,Ethiopia,3.74,3.6,3.7,2.9,Sub-Saharan Africa
+BOL,Bolivia,3.6,3.7,3.5,2.8,Latin America
+GHA,Ghana,3.58,3.5,3.5,3.0,Sub-Saharan Africa
+MMR,Myanmar,3.32,3.6,3.2,2.5,Southeast Asia
+TZA,Tanzania,3.57,3.4,3.5,2.9,Sub-Saharan Africa
+HRV,Croatia,4.07,4.5,3.9,3.2,Europe
+BHR,Bahrain,4.52,5.0,4.4,3.5,Middle East
+LTU,Lithuania,4.55,4.9,4.4,3.5,Europe
+BGR,Bulgaria,4.32,4.5,4.2,3.3,Europe
+SRB,Serbia,3.89,4.1,3.8,3.0,Europe
+JOR,Jordan,4.23,4.6,4.1,3.3,Middle East
+LVA,Latvia,4.45,4.8,4.3,3.4,Europe
+EST,Estonia,4.74,5.1,4.6,3.7,Europe
+TUN,Tunisia,3.93,4.3,3.8,3.0,Middle East
+SLV,El Salvador,3.81,4.1,3.6,3.1,Latin America
+MUS,Mauritius,4.43,4.7,4.3,3.6,Sub-Saharan Africa
+PRY,Paraguay,3.6,3.8,3.5,2.8,Latin America
+DZA,Algeria,3.79,4.3,3.5,2.8,Middle East
+MAR,Morocco,4.16,4.5,4.0,3.2,Middle East
+NAM,Namibia,3.83,4.0,3.7,3.0,Sub-Saharan Africa
+RWA,Rwanda,4.29,4.2,4.2,3.2,Sub-Saharan Africa
+ALB,Albania,4.18,4.4,4.0,3.1,Europe
+BRB,Barbados,4.2,4.7,4.0,3.5,Latin America
+MLT,Malta,4.39,5.0,4.2,3.5,Europe
+CYP,Cyprus,4.32,4.8,4.2,3.5,Europe
+UGA,Uganda,3.66,3.4,3.6,2.8,Sub-Saharan Africa
+GEO,Georgia,4.22,4.5,4.1,3.1,Central Asia
+TTO,Trinidad and Tobago,3.97,4.2,3.9,3.2,Latin America
+MNG,Mongolia,3.81,3.9,3.7,2.8,East Asia
+AZE,Azerbaijan,4.5,4.8,4.3,3.2,Central Asia
+ARM,Armenia,4.01,4.3,3.9,3.1,Central Asia
+MKD,North Macedonia,4.12,4.3,4.0,3.1,Europe
+KHM,Cambodia,3.94,4.1,3.8,3.0,Southeast Asia
+MDA,Moldova,3.86,4.0,3.7,2.8,Europe
+ZMB,Zambia,3.55,3.3,3.5,2.8,Sub-Saharan Africa
+BWA,Botswana,4.19,4.3,4.1,3.1,Sub-Saharan Africa
+LAO,Lao PDR,3.91,4.2,3.8,2.8,Southeast Asia
+CIV,Cote d'Ivoire,3.44,3.5,3.3,2.8,Sub-Saharan Africa
+UKR,Ukraine,4.03,4.5,3.8,3.2,Europe
+MOZ,Mozambique,3.2,3.1,3.1,2.5,Sub-Saharan Africa
+NIC,Nicaragua,3.82,4.1,3.6,2.9,Latin America
+HND,Honduras,3.95,4.2,3.8,3.0,Latin America
+SEN,Senegal,3.7,3.6,3.6,3.0,Sub-Saharan Africa
+LSO,Lesotho,3.63,3.4,3.6,2.8,Sub-Saharan Africa
+BEN,Benin,3.37,3.2,3.3,2.7,Sub-Saharan Africa
+CMR,Cameroon,3.68,3.4,3.6,2.9,Sub-Saharan Africa
+NPL,Nepal,3.53,3.6,3.4,2.6,South Asia
+YEM,Yemen,3.12,3.3,3.0,2.4,Middle East
+MLI,Mali,3.33,3.0,3.3,2.6,Sub-Saharan Africa
+TCD,Chad,3.05,2.9,3.0,2.3,Sub-Saharan Africa
+BDI,Burundi,2.8,2.8,2.8,2.1,Sub-Saharan Africa
+MDG,Madagascar,3.32,3.2,3.2,2.5,Sub-Saharan Africa
+NER,Niger,3.0,2.8,3.0,2.2,Sub-Saharan Africa
+GIN,Guinea,3.28,3.1,3.2,2.4,Sub-Saharan Africa
+BFA,Burkina Faso,3.35,3.1,3.3,2.5,Sub-Saharan Africa
+MRT,Mauritania,3.1,3.2,3.0,2.3,Sub-Saharan Africa
+TGO,Togo,3.27,3.1,3.2,2.4,Sub-Saharan Africa
+MWI,Malawi,3.28,3.0,3.2,2.4,Sub-Saharan Africa
+CAF,Central African Republic,2.85,2.7,2.8,2.1,Sub-Saharan Africa
+SLE,Sierra Leone,3.06,2.9,3.0,2.3,Sub-Saharan Africa
+GMB,Gambia,3.4,3.1,3.3,2.5,Sub-Saharan Africa
+GNB,Guinea-Bissau,2.9,2.8,2.9,2.2,Sub-Saharan Africa
+COM,Comoros,3.05,3.0,3.0,2.2,Sub-Saharan Africa
+DJI,Djibouti,3.29,3.2,3.2,2.4,Sub-Saharan Africa
+CPV,Cabo Verde,3.7,3.9,3.6,2.8,Sub-Saharan Africa
+STP,Sao Tome and Principe,3.15,3.1,3.1,2.2,Sub-Saharan Africa
+VEN,Venezuela,3.32,3.5,3.2,2.5,Latin America
+LBN,Lebanon,3.84,4.0,3.7,3.1,Middle East
+BLR,Belarus,4.0,4.5,3.8,2.9,Europe
+OMN,Oman,4.25,5.0,4.0,3.1,Middle East
+GAB,Gabon,3.58,3.5,3.5,2.7,Sub-Saharan Africa
+AGO,Angola,3.04,3.1,3.0,2.2,Sub-Saharan Africa
+COG,"Congo, Rep.",3.18,3.1,3.1,2.3,Sub-Saharan Africa
+SWZ,Eswatini,3.5,3.4,3.4,2.5,Sub-Saharan Africa
+IRQ,Iraq,3.28,3.5,3.1,2.4,Middle East
