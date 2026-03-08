@@ -1,0 +1,143 @@
+iso3,country_name,relative_productivity,is_steady_state
+NOR,Norway,1.28,True
+CHE,Switzerland,1.1,True
+AUS,Australia,1.05,True
+AUT,Austria,1.0,True
+SGP,Singapore,1.0,True
+ISL,Iceland,0.95,True
+NLD,Netherlands,0.95,True
+HKG,Hong Kong,0.95,True
+DNK,Denmark,0.9,True
+CAN,Canada,0.9,True
+SWE,Sweden,0.9,True
+DEU,Germany,0.88,True
+BEL,Belgium,0.88,True
+GBR,United Kingdom,0.85,True
+FIN,Finland,0.85,True
+FRA,France,0.85,True
+SAU,Saudi Arabia,0.82,True
+JPN,Japan,0.8,True
+TWN,Taiwan,0.78,True
+ISR,Israel,0.75,True
+NZL,New Zealand,0.68,True
+ESP,Spain,0.65,True
+KOR,"Korea, Rep.",0.65,True
+BRB,Barbados,0.55,True
+PRT,Portugal,0.5,True
+CYP,Cyprus,0.5,True
+MLT,Malta,0.48,True
+CHL,Chile,0.4,True
+LCA,Saint Lucia,0.35,True
+MEX,Mexico,0.33,True
+TUR,Turkey,0.38,True
+CRI,Costa Rica,0.28,True
+ZAF,South Africa,0.25,True
+COL,Colombia,0.22,True
+ECU,Ecuador,0.18,True
+NAM,Namibia,0.2,True
+DZA,Algeria,0.18,True
+SLV,El Salvador,0.16,True
+JOR,Jordan,0.15,True
+MAR,Morocco,0.12,True
+PRY,Paraguay,0.12,True
+PAK,Pakistan,0.1,True
+BOL,Bolivia,0.1,True
+PHL,Philippines,0.09,True
+HND,Honduras,0.08,True
+NIC,Nicaragua,0.07,True
+LSO,Lesotho,0.06,True
+YEM,Yemen,0.06,True
+SEN,Senegal,0.045,True
+BEN,Benin,0.04,True
+CMR,Cameroon,0.04,True
+NPL,Nepal,0.03,True
+MLI,Mali,0.025,True
+TCD,Chad,0.02,True
+BDI,Burundi,0.01,True
+CHN,China,0.2644,False
+IND,India,0.1091,False
+BRA,Brazil,0.2366,False
+ITA,Italy,0.6277,False
+RUS,Russia,0.445,False
+IDN,Indonesia,0.2048,False
+ARG,Argentina,0.3525,False
+POL,Poland,0.4862,False
+THA,Thailand,0.2782,False
+NGA,Nigeria,0.1052,False
+IRN,Iran,0.2154,False
+ARE,United Arab Emirates,0.9844,False
+IRL,Ireland,1.4198,False
+MYS,Malaysia,0.4493,False
+EGY,Egypt,0.2382,False
+BGD,Bangladesh,0.0826,False
+CZE,Czech Republic,0.6256,False
+PER,Peru,0.1962,False
+ROU,Romania,0.4437,False
+VNM,Vietnam,0.1286,False
+GRC,Greece,0.451,False
+HUN,Hungary,0.4969,False
+SVK,Slovak Republic,0.4912,False
+QAT,Qatar,1.4816,False
+KWT,Kuwait,0.916,False
+LKA,Sri Lanka,0.2193,False
+URY,Uruguay,0.321,False
+SVN,Slovenia,0.589,False
+GTM,Guatemala,0.159,False
+PAN,Panama,0.4308,False
+DOM,Dominican Republic,0.2759,False
+KEN,Kenya,0.0795,False
+KAZ,Kazakhstan,0.4089,False
+ETH,Ethiopia,0.0458,False
+GHA,Ghana,0.1073,False
+MMR,Myanmar,0.0767,False
+TZA,Tanzania,0.0532,False
+HRV,Croatia,0.4207,False
+BHR,Bahrain,0.6153,False
+LTU,Lithuania,0.5679,False
+BGR,Bulgaria,0.3786,False
+SRB,Serbia,0.2716,False
+LVA,Latvia,0.4733,False
+EST,Estonia,0.5815,False
+TUN,Tunisia,0.1747,False
+MUS,Mauritius,0.3656,False
+RWA,Rwanda,0.0454,False
+ALB,Albania,0.2092,False
+UGA,Uganda,0.0444,False
+GEO,Georgia,0.1879,False
+TTO,Trinidad and Tobago,0.4185,False
+MNG,Mongolia,0.1893,False
+AZE,Azerbaijan,0.2305,False
+ARM,Armenia,0.1793,False
+MKD,North Macedonia,0.2272,False
+KHM,Cambodia,0.0736,False
+MDA,Moldova,0.1178,False
+ZMB,Zambia,0.0741,False
+BWA,Botswana,0.2742,False
+LAO,Lao PDR,0.1262,False
+CIV,Cote d'Ivoire,0.0974,False
+UKR,Ukraine,0.1958,False
+MOZ,Mozambique,0.0248,False
+MDG,Madagascar,0.0303,False
+NER,Niger,0.0247,False
+GIN,Guinea,0.0487,False
+BFA,Burkina Faso,0.0433,False
+MRT,Mauritania,0.071,False
+TGO,Togo,0.0379,False
+MWI,Malawi,0.0296,False
+CAF,Central African Republic,0.0182,False
+SLE,Sierra Leone,0.0284,False
+GMB,Gambia,0.0473,False
+GNB,Guinea-Bissau,0.0341,False
+COM,Comoros,0.0645,False
+DJI,Djibouti,0.0663,False
+CPV,Cabo Verde,0.1104,False
+STP,Sao Tome and Principe,0.0663,False
+VEN,Venezuela,0.1495,False
+LBN,Lebanon,0.2065,False
+BLR,Belarus,0.3065,False
+OMN,Oman,0.4417,False
+GAB,Gabon,0.2524,False
+AGO,Angola,0.1377,False
+COG,"Congo, Rep.",0.1014,False
+SWZ,Eswatini,0.1721,False
+IRQ,Iraq,0.2065,False
