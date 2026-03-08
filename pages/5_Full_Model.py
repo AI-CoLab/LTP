@@ -37,16 +37,26 @@ us_growth = st.sidebar.slider("US productivity growth (%)", 0.5, 3.0, 1.5, 0.1) 
 bandwidth = st.sidebar.slider("Kernel bandwidth h", 0.1, 1.0, 0.294, 0.01)
 
 # --- Run model ---
-@st.cache_data
-def run_model(beta, gamma, us_growth, bandwidth, gci_overrides=None):
+@st.cache_resource
+def run_baseline_model(beta, gamma, us_growth, bandwidth):
+    model = HubbardSharmaModel(
+        beta=beta, gamma=gamma, us_growth=us_growth, bandwidth=bandwidth,
+    )
+    model.fit()
+    return model
+
+
+def run_scenario_model(beta, gamma, us_growth, bandwidth, gci_overrides):
+    """Run model with GCI overrides — not cached since it depends on slider state."""
     model = HubbardSharmaModel(
         beta=beta, gamma=gamma, us_growth=us_growth, bandwidth=bandwidth,
     )
     model.fit(gci_overrides=gci_overrides)
     return model
 
+
 try:
-    model = run_model(beta, gamma, us_growth, bandwidth)
+    model = run_baseline_model(beta, gamma, us_growth, bandwidth)
     projections = model.projections
 
     if projections is None or projections.empty:
@@ -330,8 +340,8 @@ try:
             gci_override = {scenario_iso3: new_gci}
 
         if gci_override:
-            scenario_model = run_model(beta, gamma, us_growth, bandwidth,
-                                       gci_overrides=gci_override)
+            scenario_model = run_scenario_model(beta, gamma, us_growth, bandwidth,
+                                                gci_overrides=gci_override)
             scenario_proj = scenario_model.projections
 
             if scenario_proj is not None and not scenario_proj.empty:
