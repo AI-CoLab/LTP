@@ -212,4 +212,8 @@ The model's simplicity is also its limitation: it assumes **fixed institutions**
 **smooth convergence**. Reality involves policy reforms, crises, and structural breaks.
 
 """)
-st.page_link("pages/5_Full_Model.py", label="→ Continue to Page 5: Full Model", icon="📖")
+prev_col, next_col = st.columns(2)
+with prev_col:
+    st.page_link("pages/3_Kernel_Regression.py", label="← Back to Page 3: Kernel Regression", icon="📖")
+with next_col:
+    st.page_link("pages/5_Full_Model.py", label="→ Continue to Page 5: Full Model", icon="📖")

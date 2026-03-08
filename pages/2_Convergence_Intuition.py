@@ -216,7 +216,11 @@ try:
           in "steady state"
 
         """)
-        st.page_link("pages/3_Kernel_Regression.py", label="→ Continue to Page 3: Kernel Regression", icon="📖")
+        prev_col, next_col = st.columns(2)
+        with prev_col:
+            st.page_link("pages/1_GDP_Identity.py", label="← Back to Page 1: What Drives GDP?", icon="📖")
+        with next_col:
+            st.page_link("pages/3_Kernel_Regression.py", label="→ Continue to Page 3: Kernel Regression", icon="📖")
 
 except FileNotFoundError:
     st.error("Data files not found. Please ensure CSV files are in the `data/` directory.")

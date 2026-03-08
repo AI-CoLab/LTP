@@ -65,6 +65,8 @@ The model rests on a simple but powerful framework:
 | h | 0.294 | Kernel regression bandwidth |
 """)
 
+st.page_link("pages/1_GDP_Identity.py", label="→ Start with Page 1: What Drives GDP?", icon="📖")
+
 st.sidebar.markdown("---")
 st.sidebar.markdown(
     "**Data:** Bundled CSVs matching the paper's 2015-era vintage. "

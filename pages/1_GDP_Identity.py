@@ -206,7 +206,11 @@ try:
     can catch up to the productivity frontier.
 
     """)
-    st.page_link("pages/2_Convergence_Intuition.py", label="→ Continue to Page 2: Convergence Intuition", icon="📖")
+    prev_col, next_col = st.columns(2)
+    with prev_col:
+        st.page_link("app.py", label="← Back to Home", icon="🏠")
+    with next_col:
+        st.page_link("pages/2_Convergence_Intuition.py", label="→ Continue to Page 2: Convergence Intuition", icon="📖")
 
 except FileNotFoundError:
     st.error(
