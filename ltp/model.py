@@ -59,21 +59,29 @@ class HubbardSharmaModel:
 
         Args:
             data_dir: Optional path to data directory
-            gci_overrides: Dict of {iso3: new_gci_score} for scenario analysis
+            gci_overrides: Dict of {iso3: new_gci_score} for scenario analysis.
+                Countries with overridden GCI are treated as non-steady-state
+                so the convergence equation applies to their new target.
         """
         # 1. Load data
         self.data = get_model_inputs(data_dir)
-        ss_df = self.data["steady_state"]
+        ss_df = self.data["steady_state"].copy()
         gci_df = self.data["gci"].copy()
         prod_df = self.data["productivity"]
         pop_df = self.data["population"]
 
         # Apply GCI overrides for scenario analysis
+        # Countries with overridden GCI are forced to non-steady-state
+        # so β > 0 applies and they converge to the new kernel-estimated φ
+        override_codes = set()
         if gci_overrides:
             for iso3, new_gci in gci_overrides.items():
                 mask = gci_df["iso3"] == iso3
                 if mask.any():
                     gci_df.loc[mask, "gci_score"] = new_gci
+                    override_codes.add(iso3)
+            # Remove overridden countries from the steady-state set
+            ss_df.loc[ss_df["iso3"].isin(override_codes), "is_steady_state"] = False
 
         # 2. Get steady-state countries' GCI and φ
         ss_countries = ss_df[ss_df["is_steady_state"] == True]
