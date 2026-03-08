@@ -156,23 +156,35 @@ try:
             fig = plot_growth_decomposition_table(decomp, decomp_country)
             st.plotly_chart(fig, use_container_width=True)
 
-            # Also show as bar chart
+            # Bar chart with proper positive/negative stacking and total line
             fig_bar = go.Figure()
+
+            # Productivity growth bars (can be positive or negative)
             fig_bar.add_trace(go.Bar(
                 x=decomp["period"], y=decomp["productivity_growth"],
                 name="Productivity growth", marker_color=colors[0],
             ))
+            # Workforce growth bars (negative in later decades for many countries)
             fig_bar.add_trace(go.Bar(
                 x=decomp["period"], y=decomp["workforce_growth"],
                 name="Workforce growth", marker_color=colors[1],
             ))
+            # Total GDP growth as black line
+            fig_bar.add_trace(go.Scatter(
+                x=decomp["period"], y=decomp["gdp_growth"],
+                name="Total GDP growth", mode="lines+markers",
+                line=dict(color="black", width=2.5),
+                marker=dict(size=7, color="black"),
+            ))
+
             fig_bar.update_layout(
                 title=f"Growth Decomposition: {decomp_country}",
                 yaxis_title="Average annual growth (%)",
-                barmode="stack",
+                barmode="relative",
                 template="plotly_white",
                 height=400,
             )
+            fig_bar.add_hline(y=0, line_color="gray", line_width=0.5)
             st.plotly_chart(fig_bar, use_container_width=True)
         else:
             st.warning(f"Insufficient data for {decomp_country}")
@@ -262,6 +274,30 @@ try:
             )
 
         st.caption(f"Current GCI: {current_gci_val:.2f} → Modified: {new_gci:.2f}")
+
+        # Show comparable steady-state countries for context
+        ss_df = model.data["steady_state"]
+        ss_countries_only = ss_df[ss_df["is_steady_state"] == True].copy()
+        ss_with_gci = pd.merge(
+            ss_countries_only, gci_df[["iso3", "gci_score"]], on="iso3", how="inner"
+        )
+        if not ss_with_gci.empty:
+            active_gci = new_gci
+            ss_with_gci["gci_dist"] = (ss_with_gci["gci_score"] - active_gci).abs()
+            nearest = ss_with_gci.nsmallest(3, "gci_dist")
+            comparables = ", ".join(
+                f"{r['country_name']} ({r['gci_score']:.2f})"
+                for _, r in nearest.iterrows()
+            )
+            # Compute kernel-estimated φ for this GCI score
+            from ltp.kernel import kernel_estimate
+            phi_est = kernel_estimate(
+                model.ss_gci, model.ss_phi, active_gci, model.optimal_bandwidth
+            )
+            st.info(
+                f"**GCI {active_gci:.2f}** is comparable to: {comparables}. "
+                f"Kernel-estimated steady-state productivity: **{phi_est:.2f}** (US = 1.0)"
+            )
 
         # Pre-built scenarios
         preset = st.selectbox(
