@@ -215,8 +215,8 @@ try:
         - Countries with poor institutions can be "trapped" at low productivity even if they're
           in "steady state"
 
-        **→ Continue to Page 3: Kernel Regression**
         """)
+        st.page_link("pages/3_Kernel_Regression.py", label="→ Continue to Page 3: Kernel Regression", icon="📖")
 
 except FileNotFoundError:
     st.error("Data files not found. Please ensure CSV files are in the `data/` directory.")

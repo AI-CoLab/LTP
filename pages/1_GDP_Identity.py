@@ -205,8 +205,8 @@ try:
     using *conditional convergence* — the idea that countries with good institutions
     can catch up to the productivity frontier.
 
-    **→ Continue to Page 2: Convergence Intuition**
     """)
+    st.page_link("pages/2_Convergence_Intuition.py", label="→ Continue to Page 2: Convergence Intuition", icon="📖")
 
 except FileNotFoundError:
     st.error(
