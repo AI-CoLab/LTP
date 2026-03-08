@@ -227,8 +227,8 @@ try:
     - GCI 3.8-4.8: **Steep gains** — this is where institutional reform pays off most
     - Above GCI ~4.8: High productivity, diminishing returns to further improvement
 
-    **→ Continue to Page 4: Convergence Dynamics**
     """)
+    st.page_link("pages/4_Convergence_Dynamics.py", label="→ Continue to Page 4: Convergence Dynamics", icon="📖")
 
 except FileNotFoundError:
     st.error("Data files not found. Please ensure CSV files are in the `data/` directory.")

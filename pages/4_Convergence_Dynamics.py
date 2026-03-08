@@ -211,5 +211,5 @@ half the gap between current and potential productivity. This is why:
 The model's simplicity is also its limitation: it assumes **fixed institutions** and
 **smooth convergence**. Reality involves policy reforms, crises, and structural breaks.
 
-**→ Continue to Page 5: Full Model**
 """)
+st.page_link("pages/5_Full_Model.py", label="→ Continue to Page 5: Full Model", icon="📖")
