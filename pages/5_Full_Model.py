@@ -12,7 +12,7 @@ import plotly.graph_objects as go
 import plotly.express as px
 
 from ltp.model import HubbardSharmaModel
-from ltp.data import load_gci_scores
+from ltp.data import load_gci_scores, diagnose_data
 from ltp.viz import (
     plot_gdp_trajectories,
     plot_per_capita_comparison,
@@ -36,32 +36,146 @@ gamma = st.sidebar.slider("γ (momentum)", 0.0, 1.0, 0.5, 0.05)
 us_growth = st.sidebar.slider("US productivity growth (%)", 0.5, 3.0, 1.5, 0.1) / 100
 bandwidth = st.sidebar.slider("Kernel bandwidth h", 0.1, 1.0, 0.294, 0.01)
 
+# --- Data source toggle ---
+st.sidebar.header("Data Source")
+use_live_api = st.sidebar.toggle(
+    "Use live API data",
+    value=False,
+    help="Fetch GDP from IMF and population from UN APIs instead of bundled CSVs. "
+         "GCI scores always use bundled data (no public API available).",
+)
+if use_live_api:
+    st.sidebar.caption(
+        "**Live mode**: GDP from IMF DataMapper, population from UN Population Division. "
+        "GCI & steady-state classifications use bundled data."
+    )
+else:
+    st.sidebar.caption("**Bundled mode**: Using paper-vintage CSV data.")
+
+
 # --- Run model ---
 @st.cache_resource
-def run_baseline_model(beta, gamma, us_growth, bandwidth):
+def run_baseline_model(beta, gamma, us_growth, bandwidth, use_live_api):
     model = HubbardSharmaModel(
         beta=beta, gamma=gamma, us_growth=us_growth, bandwidth=bandwidth,
     )
-    model.fit()
+    model.fit(use_live_api=use_live_api)
     return model
 
 
-def run_scenario_model(beta, gamma, us_growth, bandwidth, gci_overrides):
+def run_scenario_model(beta, gamma, us_growth, bandwidth, gci_overrides, use_live_api):
     """Run model with GCI overrides — not cached since it depends on slider state."""
     model = HubbardSharmaModel(
         beta=beta, gamma=gamma, us_growth=us_growth, bandwidth=bandwidth,
     )
-    model.fit(gci_overrides=gci_overrides)
+    model.fit(gci_overrides=gci_overrides, use_live_api=use_live_api)
     return model
 
 
 try:
-    model = run_baseline_model(beta, gamma, us_growth, bandwidth)
+    model = run_baseline_model(beta, gamma, us_growth, bandwidth, use_live_api)
     projections = model.projections
 
     if projections is None or projections.empty:
         st.error("Model produced no projections. Check data files.")
         st.stop()
+
+    # --- Data source indicator ---
+    source = model.data.get("source", "bundled")
+    if source == "live_api":
+        st.success("Data source: **Live API** (IMF GDP + UN Population). GCI: bundled CSV.")
+    else:
+        st.info("Data source: **Bundled CSVs** (paper-vintage data). Toggle live API in sidebar.")
+
+    # --- Data diagnostics ---
+    with st.expander("Data Diagnostics", expanded=False):
+        diag = diagnose_data(model.data)
+
+        dcol1, dcol2, dcol3, dcol4 = st.columns(4)
+        with dcol1:
+            st.metric("GDP Countries", diag["gdp"]["countries"])
+            st.caption(f"Years: {diag['gdp']['year_range']}")
+        with dcol2:
+            st.metric("Population Countries", diag["population"]["countries"])
+            st.caption(f"Years: {diag['population']['year_range']}")
+        with dcol3:
+            st.metric("GCI Countries", diag["gci"]["countries"])
+            st.caption(f"Scores: {diag['gci']['score_range']}")
+        with dcol4:
+            st.metric("Model-Ready Countries", diag["coverage"]["model_ready_count"])
+            st.caption(f"SS: {diag['steady_state']['steady_state_count']} / {diag['steady_state']['total_countries']}")
+
+        st.markdown("---")
+        st.markdown("**Quality Checks**")
+
+        checks = []
+
+        # Check: US present
+        if diag["gdp"]["has_usa"]:
+            checks.append(("US data present in GDP", True))
+        else:
+            checks.append(("US data present in GDP", False))
+
+        # Check: no missing GDP
+        if diag["gdp"]["missing_values"] == 0:
+            checks.append(("No missing GDP values", True))
+        else:
+            checks.append((f"Missing GDP values: {diag['gdp']['missing_values']}", False))
+
+        # Check: no missing population
+        total_missing = diag["population"]["missing_wap"] + diag["population"]["missing_total"]
+        if total_missing == 0:
+            checks.append(("No missing population values", True))
+        else:
+            checks.append((f"Missing population values: {total_missing}", False))
+
+        # Check: population has projections to 2050
+        if diag["population"]["has_projections"]:
+            checks.append(("Population projections extend to 2050", True))
+        else:
+            checks.append(("Population projections do NOT extend to 2050", False))
+
+        # Check: no missing GCI
+        if diag["gci"]["missing_scores"] == 0:
+            checks.append(("No missing GCI scores", True))
+        else:
+            checks.append((f"Missing GCI scores: {diag['gci']['missing_scores']}", False))
+
+        # Check: productivity merge
+        if diag["productivity"]["missing_productivity"] == 0:
+            checks.append(("No missing productivity values after merge", True))
+        else:
+            checks.append((f"Missing productivity: {diag['productivity']['missing_productivity']}", False))
+
+        # Check: good country coverage
+        if diag["coverage"]["model_ready_count"] >= 100:
+            checks.append((f"Good country coverage ({diag['coverage']['model_ready_count']} countries)", True))
+        else:
+            checks.append((f"Low country coverage ({diag['coverage']['model_ready_count']} countries)", False))
+
+        for label, ok in checks:
+            st.markdown(f"{'**PASS**' if ok else '**FAIL**'} — {label}")
+
+        # Show coverage gaps
+        if diag["coverage"]["in_gci_missing_gdp"]:
+            st.markdown(f"**Countries in GCI but missing GDP data:** {', '.join(diag['coverage']['in_gci_missing_gdp'])}")
+        if diag["coverage"]["in_gci_missing_pop"]:
+            st.markdown(f"**Countries in GCI but missing population data:** {', '.join(diag['coverage']['in_gci_missing_pop'])}")
+
+        # Raw data samples
+        st.markdown("---")
+        st.markdown("**Data Samples**")
+        sample_tabs = st.tabs(["GDP", "Population", "GCI", "Steady State", "Productivity"])
+        with sample_tabs[0]:
+            st.dataframe(model.data["gdp"].head(20), use_container_width=True)
+        with sample_tabs[1]:
+            st.dataframe(model.data["population"].head(20), use_container_width=True)
+        with sample_tabs[2]:
+            st.dataframe(model.data["gci"].head(20), use_container_width=True)
+        with sample_tabs[3]:
+            st.dataframe(model.data["steady_state"].head(20), use_container_width=True)
+        with sample_tabs[4]:
+            st.dataframe(model.data["productivity"].head(20), use_container_width=True)
 
     tab1, tab2, tab3, tab4, tab5 = st.tabs([
         "Top Economies", "Growth Decomposition", "Regional Shares",
@@ -341,7 +455,8 @@ try:
 
         if gci_override:
             scenario_model = run_scenario_model(beta, gamma, us_growth, bandwidth,
-                                                gci_overrides=gci_override)
+                                                gci_overrides=gci_override,
+                                                use_live_api=use_live_api)
             scenario_proj = scenario_model.projections
 
             if scenario_proj is not None and not scenario_proj.empty:

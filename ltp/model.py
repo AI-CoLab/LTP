@@ -54,7 +54,7 @@ class HubbardSharmaModel:
         self.phi_estimates = None
         self.projections = None
 
-    def fit(self, data_dir=None, gci_overrides: dict | None = None):
+    def fit(self, data_dir=None, gci_overrides: dict | None = None, use_live_api: bool = False):
         """Run the full model pipeline.
 
         Args:
@@ -62,9 +62,10 @@ class HubbardSharmaModel:
             gci_overrides: Dict of {iso3: new_gci_score} for scenario analysis.
                 Countries with overridden GCI are treated as non-steady-state
                 so the convergence equation applies to their new target.
+            use_live_api: If True, fetch GDP/population from live APIs
         """
         # 1. Load data
-        self.data = get_model_inputs(data_dir)
+        self.data = get_model_inputs(data_dir, use_live_api=use_live_api)
         ss_df = self.data["steady_state"].copy()
         gci_df = self.data["gci"].copy()
         prod_df = self.data["productivity"]
